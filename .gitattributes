@@ -1,0 +1,11 @@
+coco_style_annotations/instancesonly_gtFine_train.json filter=lfs diff=lfs merge=lfs -text
+models/F2F/F2F.net filter=lfs diff=lfs merge=lfs -text
+models/F2F/F2F_no_ar_ft.net filter=lfs diff=lfs merge=lfs -text
+models/F2F/single_levels/F2F5_no_ar_ft.net filter=lfs diff=lfs merge=lfs -text
+models/maskrcnn/ResNet-50-FPN-coco_init_e2e_cityscapes_finetuned/20170927_coco_init_e2e_mask_rcnn_R-50-FPN.yaml.05_42_40.xVPWx2L5/model_final.pkl filter=lfs diff=lfs merge=lfs -text
+precomputed/P5_sample/train__fpn_res5_2_sum__nSeq5__fr3__features.npy filter=lfs diff=lfs merge=lfs -text
+precomputed/P5_sample/val__fpn_res5_2_sum__nSeq5__fr3__features.npy filter=lfs diff=lfs merge=lfs -text
+precomputed/predictions/f2f_ft_nT3_t+3_qqu04edgr0.tar.gz filter=lfs diff=lfs merge=lfs -text
+precomputed/predictions/f2f_nT1_ishexcx9to.tar.gz filter=lfs diff=lfs merge=lfs -text
+precomputed/predictions/f2f_ft_nT3_t+1_qqu04edgr0.tar.gz filter=lfs diff=lfs merge=lfs -text
+precomputed/predictions/f2f_ft_nT3_t+2_qqu04edgr0.tar.gz filter=lfs diff=lfs merge=lfs -text

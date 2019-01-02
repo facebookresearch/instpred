@@ -1,0 +1,4 @@
+*.pyc
+precomputed/P5_fr3_features/*
+results
+logs

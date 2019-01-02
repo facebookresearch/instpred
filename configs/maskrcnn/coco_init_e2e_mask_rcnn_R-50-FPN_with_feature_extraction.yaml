@@ -1,0 +1,34 @@
+MODEL:
+  TYPE: generalized_rcnn_with_feature_extraction #mask_rcnn_with_feature_extraction
+  CONV_BODY: FPN.add_fpn_ResNet50_conv5_body
+  NUM_CLASSES: 9
+  FASTER_RCNN: True
+  MASK_ON: True
+NUM_GPUS: 1 # was 8, could do that but on cluster only.
+FPN:
+  FPN_ON: True
+  MULTILEVEL_ROIS: True
+  MULTILEVEL_RPN: True
+FAST_RCNN:
+  ROI_XFORM_METHOD: RoIAlign
+  ROI_XFORM_RESOLUTION: 7
+  ROI_XFORM_SAMPLING_RATIO: 2
+  ROI_BOX_HEAD: head_builder.add_roi_2mlp_head
+MRCNN:
+  ROI_MASK_HEAD: mask_rcnn_heads.ResNet_mask_rcnn_fcn_head_v1up4convs
+  RESOLUTION: 28  # (output mask resolution) default 14
+  ROI_XFORM_METHOD: RoIAlign
+  ROI_XFORM_RESOLUTION: 14  # default 7
+  ROI_XFORM_SAMPLING_RATIO: 2  # default 0
+  DILATION: 1  # default 2
+  CONV_INIT: MSRAFill  # default GaussianFill
+TEST:
+  WEIGHTS: /private/home/paulineluc/code/oss/predicting_future_instance_segm/models/maskrcnn/ResNet-50-FPN-coco_init_e2e_cityscapes_finetuned/20170927_coco_init_e2e_mask_rcnn_R-50-FPN.yaml.05_42_40.xVPWx2L5/model_final.pkl
+  SCALE: 1024
+  MAX_SIZE: 2048
+  NMS: 0.5
+  RPN_PRE_NMS_TOP_N: 1000  # Per FPN level
+  RPN_POST_NMS_TOP_N: 1000
+  PRECOMPUTED_PROPOSALS: False
+USE_NCCL: False
+OUTPUT_DIR: .
