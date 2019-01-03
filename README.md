@@ -10,11 +10,11 @@ This repo contains the code for reproducing the results of our [ECCV 2018 paper]
 
 Check out more qualitative results on our [project website](http://thoth.inrialpes.fr/people/pluc/instpred2018) !
 
-### Installation
+## Installation
 
 See [SETUP.md](SETUP.md).
 
-### Inference
+## Inference
 
 We provide the models which obtained the reported results in [models/F2F](models/F2F). We recall their performance here:
 
@@ -73,7 +73,7 @@ python eval.py --model models/F2F/F2F.net -nTR 3 --nb_scales 1,1,1,3 --id_gpu_mo
   --save evaluate/2_evaluate_f2f_nT3_test_set --test_set True
 ```
 
-### Training
+## Training
 
 First, it is best to precompute the input and target P5 features using the provided [Mask R-CNN model](models/maskrcnn/ResNet-50-FPN-coco_init_e2e_cityscapes_finetuned/) on the training and validation set, with:
 ```
@@ -151,7 +151,7 @@ export F2F2_WEIGHTS=... # USERTODO : fill in with the adequate path
 python assemble_models.py --nb_scales 1,1,1,3 --save other/1_assemble_F2F_model
 ```
 
-### Results
+## Results
 
 For ease of comparison with our work, we provide the predictions of our models on the Cityscapes [1] validation set.
 - For 3 frames ahead (about 0.17s). [[Download]](precomputed/predictions/f2f_nT1_ishexcx9to.tar.gz)
@@ -160,3 +160,6 @@ This one is obtained by taking frames 8, 11, 14, 17 of each sequence in input an
 These are obtained by taking frames 2, 5, 8, 11 of each sequence in input, and predicting frames 14, 17, 20. These are the predictions of the autoregressively finetuned model, which get 19.4 AP-50% and 41.2 mIOU over the moving classes. The second result is obtained by converting the instance segmentations to semantic segmentations using the simple procedure we describe in the paper, with threshold=0.5. We have also used this threshold for all our visualizations.
 
 *[1] Cordts, M., Omran, M., Ramos, S., Rehfeld, T., Enzweiler, M., Benenson, R., Franke, U., Roth, S., Schiele, B.: The Cityscapes dataset for semantic urban scene understanding. CVPR 2016*
+
+## License 
+This project is licensed under the [CC-BY-NC 4.0 licensing](https://creativecommons.org/licenses/by-nc/4.0/legalcode). Please refer to the LICENSE file in the root directory of this project. By contributing to this project, you agree that your contributions will be licensed under this LICENSE file.
